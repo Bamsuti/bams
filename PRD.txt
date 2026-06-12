@@ -1,0 +1,82 @@
+================================================================================
+PRD Aplikasi Gadai Emas - GadaiEmas v1.0
+================================================================================
+
+1. PENDAHULUAN
+   - Latar Belakang: Toko emas skala kecil masih menggunakan pencatatan manual
+     (buku besar, kwitansi tulis tangan) yang rawan kesalahan dan sulit direkap.
+   - Tujuan: Digitalisasi pencatatan gadai emas dengan aplikasi web ringan yang
+     bisa diakses via HP dengan koneksi internet terbatas.
+   - Target Pengguna: Toko emas skala kecil (1-5 pegawai) dengan karakteristik:
+     * Literasi teknologi dasar-menengah
+     * Perangkat HP Android mid-low (RAM 2-3GB)
+     * Koneksi internet 3G/HSDPA tidak stabil
+
+2. MODUL FITUR
+   A. Manajemen Nasabah
+      - CRUD data nasabah (nama, alamat, no HP, KTP, foto)
+      - Pencarian cepat by nama/HP/ID
+      - Status aktif/non-aktif
+      - Histori transaksi per nasabah
+
+   B. Manajemen Barang Gadai
+      - Kategori: Perhiasan, Logam Batangan, Koin, Lainnya
+      - Detail: nama barang, berat (gram), kadar (karat), deskripsi, foto
+      - Status: Tergadai, Ditebus, Dijual, Dihapus
+
+   C. Penaksiran Emas
+      - Kalkulator taksir (berat x kadar x harga pasar x margin)
+      - Harga emas harian
+      - Margin pinjaman (configurable)
+      - Riwayat harga emas
+
+   D. Transaksi Gadai
+      - Gadai baru (pilih nasabah + barang + nominal + jangka waktu)
+      - Nomor surat otomatis
+      - Bunga per bulan configurable
+      - Biaya admin
+      - Status: aktif, lunas, diperpanjang
+
+   E. Pembayaran
+      - Pelunasan (tebus barang)
+      - Perpanjangan jangka waktu
+      - Denda keterlambatan
+      - Metode: tunai / transfer
+      - Kwitansi digital
+
+   F. Kas & Keuangan
+      - Buku kas (pemasukan & pengeluaran otomatis + manual)
+      - Kategori: pinjaman_cair, pelunasan, bunga, denda, biaya_admin, operasional, lainnya
+      - Laporan laba-rugi
+      - Laporan bulanan
+
+   G. Aktivitas Pengguna
+      - Log otomatis (siapa + kapan + aksi + modul)
+      - Filter by user, tanggal, aksi
+      - Ekspor log
+
+   H. Dokumen & Arsip Digital
+      - Upload foto & PDF
+      - Organisasi per nasabah/barang/transaksi
+      - Maks 2MB/file, format JPG/PNG/PDF
+      - Kompresi gambar otomatis
+
+3. BATASAN TEKNIS
+   - Mobile-first: layout responsif 320px-1920px
+   - Ringan: < 500KB per halaman, tanpa framework JS berat
+   - Cepat: Time to Interactive < 3 detik di koneksi 3G
+   - Offline-ready: Service Worker untuk cache aset statis
+   - PWA: manifest.json + service worker
+   - Stack: PHP 8.x + MySQL 8.x + Tailwind CSS + Vanilla JS
+
+4. USER ROLES
+   - Pemilik: laporan, pengaturan, manajemen user
+   - Admin: input nasabah, transaksi, pembayaran, kas
+
+5. PRIORITAS IMPLEMENTASI
+   M1 (Inti): Auth, Nasabah, Barang, Penaksiran, Transaksi Gadai
+   M2 (Pembayaran): Pelunasan, Perpanjangan, Kwitansi PDF
+   M3 (Keuangan): Kas, Laporan, Dashboard
+   M4 (Pelengkap): Arsip, Log, Pengaturan, PWA
+
+================================================================================
